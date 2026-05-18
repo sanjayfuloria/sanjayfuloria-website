@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Sanjay Fuloria | Professor · Researcher · Thought Leader</title>
+  <meta name="description" content="Dr. Sanjay Fuloria — Professor, Director of CDOE at IFHE Hyderabad. Writing and research at the intersection of AI, digital transformation, and higher education." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --ink:        #0e0e0e;
+      --ink-2:      #141410;
+      --ink-3:      #1c1c18;
+      --ink-4:      #252520;
+      --parchment:  #f0ead8;
+      --cream:      #e8e0cc;
+      --warm-grey:  #a09880;
+      --muted:      #5c574e;
+      --gold:       #c8a84b;
+      --gold-light: #dfc070;
+      --gold-dim:   #7a6428;
+      --rule:       #2a2820;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Source Serif 4', Georgia, serif;
+      --font-mono:    'JetBrains Mono', monospace;
+
+      --max-w: 820px;
+      --gutter: clamp(1.5rem, 5vw, 3rem);
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--gold-dim);
+      color: var(--parchment);
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover { color: var(--gold-light); }
+
+    img { display: block; max-width: 100%; }
+
+    /* ============================================================
+       NOISE TEXTURE OVERLAY
+    ============================================================ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.2rem var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(14,14,14,0.98) 0%, rgba(14,14,14,0) 100%);
+      backdrop-filter: blur(2px);
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--parchment);
+    }
+
+    .nav-brand span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem var(--gutter) 4rem;
+      gap: 4rem;
+    }
+
+    .hero-text {
+      animation: fadeUp 1s var(--ease-out-expo) both;
+      animation-delay: 0.1s;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.08;
+      font-weight: 700;
+      color: var(--parchment);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-light);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--warm-grey);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .hero-thesis {
+      font-size: 1.12rem;
+      line-height: 1.8;
+      color: var(--cream);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      border-left: 2px solid var(--gold-dim);
+      padding-left: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.6rem;
+      border: 1px solid;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      color: var(--ink);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--muted);
+      color: var(--warm-grey);
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    .hero-photo {
+      animation: fadeUp 1s var(--ease-out-expo) both;
+      animation-delay: 0.3s;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: min(360px, 90%);
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 1px solid var(--gold-dim);
+      z-index: 0;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      position: relative;
+      z-index: 1;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: -2rem;
+      right: 0;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ============================================================
+       DIVIDER
+    ============================================================ */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+    }
+
+    /* ============================================================
+       SECTIONS
+    ============================================================ */
+    section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 5rem var(--gutter);
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      line-height: 1.2;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-light);
+    }
+
+    /* ============================================================
+       PILLARS / WHAT I DO
+    ============================================================ */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      margin-top: 3rem;
+    }
+
+    .pillar {
+      padding: 2rem 1.75rem;
+      border-right: 1px solid var(--rule);
+      transition: background 0.3s ease;
+    }
+    .pillar:last-child { border-right: none; }
+    .pillar:hover { background: var(--ink-3); }
+
+    .pillar-number {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--warm-grey);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about .about-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--cream);
+    }
+
+    #about .about-body p + p {
+      margin-top: 1.4rem;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      margin-top: 3.5rem;
+    }
+
+    .stat {
+      padding: 1.75rem;
+      border-right: 1px solid var(--rule);
+      text-align: center;
+    }
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ============================================================
+       COMMENTARY / WRITING
+    ============================================================ */
+    #commentary { background: var(--ink-2); }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--rule);
+      margin-top: 2rem;
+    }
+
+    .writing-item {
+      padding: 1.75rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      display: block;
+      transition: background 0.25s ease;
+    }
+
+    .writing-item:nth-child(even) { border-right: none; }
+    .writing-item:nth-last-child(-n+2) { border-bottom: none; }
+    .writing-item:hover { background: var(--ink-3); }
+
+    .writing-outlet {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .writing-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.35;
+      transition: color 0.2s ease;
+    }
+    .writing-item:hover .writing-title { color: var(--gold-light); }
+
+    .writing-arrow {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .writing-item:hover .writing-arrow { color: var(--gold); }
+
+    /* ============================================================
+       PUBLICATIONS
+    ============================================================ */
+    .pub-year-group { margin-bottom: 3rem; }
+
+    .pub-year {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+
+    .pub-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-start: start;
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--parchment);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-meta {
+      font-size: 0.82rem;
+      color: var(--warm-grey);
+    }
+
+    .pub-citations {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid var(--gold-dim);
+      height: fit-content;
+    }
+
+    .pub-link {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .pub-link:hover { color: var(--gold); }
+
+    .scholar-cta {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      background: var(--ink-3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .scholar-cta p {
+      font-size: 0.9rem;
+      color: var(--warm-grey);
+    }
+
+    /* ============================================================
+       PROJECTS
+    ============================================================ */
+    #projects { background: var(--ink-2); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      border: 1px solid var(--rule);
+      padding: 2rem;
+      background: var(--ink);
+      transition: border-color 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      border-color: var(--gold-dim);
+      background: var(--ink-3);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold-dim), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.87rem;
+      color: var(--warm-grey);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact {
+      text-align: center;
+    }
+
+    #contact .section-label { justify-content: center; }
+    #contact .section-label::after { display: none; }
+    #contact .section-label::before {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .contact-intro {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--warm-grey);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .contact-item {
+      padding: 1.5rem 1rem;
+      border-right: 1px solid var(--rule);
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s ease;
+    }
+    .contact-item:last-child { border-right: none; }
+    .contact-item:hover { background: var(--ink-3); }
+
+    .contact-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-value {
+      font-size: 0.85rem;
+      color: var(--gold);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 7rem;
+        gap: 3rem;
+      }
+      .hero-photo { justify-content: center; }
+      .photo-frame { width: min(280px, 80%); }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid var(--rule); }
+      .pillar:last-child { border-bottom: none; }
+      .writing-grid { grid-template-columns: 1fr; }
+      .writing-item:nth-child(even) { border-right: none; }
+      .writing-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+      .writing-item:last-child { border-bottom: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--rule); }
+      .stat:last-child { border-bottom: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { border-right: none; border-bottom: 1px solid var(--rule); }
+      .contact-item:last-child { border-bottom: none; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .pub-item { grid-template-columns: 1fr; }
+      .scholar-cta { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-brand">Dr. <span>Sanjay Fuloria</span></span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#commentary">Writing</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" style="max-width:1200px;margin:0 auto;padding:6rem clamp(1.5rem,5vw,3rem) 4rem;">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Hyderabad · India</div>
+      <h1 class="hero-name">Sanjay<br /><em>Fuloria</em></h1>
+      <p class="hero-title">Professor &amp; Director, Centre for Distance and Online Education — IFHE</p>
+      <p class="hero-thesis">
+        I study how institutions navigate technological change — and how to make that change more human. My work sits at the intersection of AI, digital transformation, and higher education.
+      </p>
+      <div class="hero-actions">
+        <a href="#commentary" class="btn btn-primary">Read My Writing</a>
+        <a href="#publications" class="btn btn-ghost">View Research</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <img src="https://www.sanjayfuloria.tech/sanjay.jpg" alt="Dr. Sanjay Fuloria" />
+        <span class="photo-caption">IFHE Hyderabad</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO STRIP -->
+  <div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter) 5rem;" class="reveal">
+    <div class="section-label">What I Do</div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-number">01</div>
+        <div class="pillar-title">Teach &amp; Design</div>
+        <p class="pillar-desc">MBA courses in Managing Digital Transformation and Quantitative Methods. Simulation-based, AI-integrated pedagogy that prepares managers for a world in flux.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">02</div>
+        <div class="pillar-title">Research &amp; Write</div>
+        <p class="pillar-desc">Academic publications in AI, fintech, digital transformation, and knowledge management. Regular commentary in Economic Times Education and The Hindu Business Line.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">03</div>
+        <div class="pillar-title">Lead &amp; Build</div>
+        <p class="pillar-desc">Director, CDOE. Architect of AI governance frameworks, Faculty Development Programmes, and technology policy for a 25,000-student deemed university.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="section-label">About</div>
+    <h2 class="section-heading">The work and the<br /><em>why behind it</em></h2>
+
+    <div class="about-body">
+      <p>
+        I have spent two decades studying how technology reshapes institutions — and how institutions shape technology adoption back. That tension is where I live. I joined IFHE Hyderabad to teach in the MBA programme, and over time took on responsibility for the Centre for Distance and Online Education, which oversees learning for thousands of students who cannot be in a classroom every day.
+      </p>
+      <p>
+        My research began with mobile banking adoption and has tracked the digital wave through blockchain, AI, and now agentic systems. I am interested less in the hype cycle and more in the institutional conditions that determine whether a technology creates genuine value or merely disruption. That scepticism — paired with genuine excitement about what is possible — shapes how I teach, write, and advise.
+      </p>
+      <p>
+        Outside the institution, I write for a broader audience on education policy, AI governance, and the future of management education in India. I believe academics have an obligation to participate in public discourse, not just produce papers for credentialed readers.
+      </p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-number">400+</span>
+        <span class="stat-label">Scholarly Citations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Peer-reviewed Papers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">15+</span>
+        <span class="stat-label">Years in Higher Education</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- COMMENTARY / WRITING -->
+  <section id="commentary" style="max-width:var(--max-w);margin:0 auto;padding:5rem var(--gutter);background:var(--ink-2);" class="reveal">
+    <div class="section-label">Opinion &amp; Commentary</div>
+    <h2 class="section-heading">Writing for those<br /><em>outside the journal</em></h2>
+
+    <div class="writing-grid">
+      <a href="https://education.economictimes.indiatimes.com/news/higher-education/indias-engineering-education-bridging-the-skills-gap-for-tomorrows-workforce/129918437" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">India's Engineering Education: The Great Mismatch</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://education.economictimes.indiatimes.com/news/higher-education/revolutionizing-higher-education-how-claude-co-work-ai-enhances-academic-collaboration/128594422" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">Higher Education Meets AI Collaboration: The Rise of Agentic AI Tools</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://education.economictimes.indiatimes.com/news/industry/the-dangerous-myth-of-instant-programmers-in-the-age-of-ai/126349895" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">The Dangerous Myth of Instant Programmers in the Age of AI</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://education.economictimes.indiatimes.com/news/the-classroom-still-needs-a-beating-heart/124868031" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">The Classroom Still Needs a Beating Heart</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://education.economictimes.indiatimes.com/news/industry/transforming-higher-education-with-agentic-ai-a-2023-perspective/121902990" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">Agentic AI for Higher Education Institutions</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://www.thehindubusinessline.com/opinion/digitisation-can-be-toxic/article70925699.ece" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">The Hindu Business Line</div>
+        <div class="writing-title">Digitisation Can Be Toxic</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://education.economictimes.indiatimes.com/blog/why-guardrails-are-essential-when-using-generative-ai-in-higher-education/117775129" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">Why Guardrails are Essential When Using Generative AI in Higher Education</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+      <a href="https://education.economictimes.indiatimes.com/news/higher-education/beyond-the-screen-why-the-future-of-learning-belongs-to-genai-and-teachers/123691964" target="_blank" rel="noopener" class="writing-item">
+        <div class="writing-outlet">Economic Times Education</div>
+        <div class="writing-title">Beyond the Screen: Why the Future of Learning Belongs to GenAI and Teachers</div>
+        <span class="writing-arrow">Read →</span>
+      </a>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="reveal">
+    <div class="section-label">Research</div>
+    <h2 class="section-heading">Academic<br /><em>Publications</em></h2>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2025 – 2026</div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Agentic AI in services: orchestrating human–machine synergy for service excellence</div>
+          <div class="pub-meta">Shrivastava, A. &amp; Fuloria, S. · International Journal of Quality and Service Sciences, 18(1), 204–212</div>
+          <a href="https://scholar.google.com/scholar?q=Agentic+AI+in+services+orchestrating+human+machine+synergy+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Role of AI in Digital Immune Systems</div>
+          <div class="pub-meta">Fuloria, S. · Digital Immune System: Principles and Practices, 269–288</div>
+          <a href="https://scholar.google.com/scholar?q=Role+of+AI+in+Digital+Immune+Systems+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Ancient Wisdom, Modern Dilemmas: Reframing Decision-Making through the Lens of Indian Epics</div>
+          <div class="pub-meta">Fuloria, S. &amp; Roy, S. · Purushartha, 18(1), 25–40</div>
+          <a href="https://scholar.google.com/scholar?q=Ancient+Wisdom+Modern+Dilemmas+Indian+Epics+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2022 – 2024</div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">A bibliometric analysis of knowledge management research during COVID-19</div>
+          <div class="pub-meta">Fuloria, S., Srivastava, A. &amp; Anand, U. · International Journal of Knowledge and Learning, 17(2), 159–196</div>
+          <a href="https://scholar.google.com/scholar?q=bibliometric+analysis+knowledge+management+COVID-19+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Employee Development Using Business Simulation Games</div>
+          <div class="pub-meta">Fuloria, S. · NHRD Network Journal, 15(3), 353–360</div>
+          <a href="https://scholar.google.com/scholar?q=Employee+Development+Business+Simulation+Games+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Predicting Housing Prices: A Comparison of Three Alternative Methodologies</div>
+          <div class="pub-meta">Fuloria, S. · IUP Journal of Applied Economics, 21(2), 81–88</div>
+          <a href="https://scholar.google.com/scholar?q=Predicting+Housing+Prices+Comparison+Three+Alternative+Methodologies+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year">Earlier — Foundational Work</div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Passenger Demand Forecasting in the Ridesharing Context: A Comparison of Statistical and Deep Learning Approaches</div>
+          <div class="pub-meta">Fuloria, S. · IUP Journal of Applied Economics, 19(1), 57–71 · 2020</div>
+          <a href="https://scholar.google.com/scholar?q=Passenger+Demand+Forecasting+Ridesharing+Deep+Learning+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+        <div class="pub-citations">9 citations</div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Enhancing disaster management by mapping disaster proneness and preparedness</div>
+          <div class="pub-meta">Mishra, V., Fuloria, S. &amp; Bisht, S.S. · Disasters, 36(3), 382–397 · 2012</div>
+          <a href="https://scholar.google.com/scholar?q=Enhancing+disaster+management+mapping+disaster+proneness+preparedness+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+        <div class="pub-citations">30 citations</div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Measuring accessibility for inclusive development: a census based index</div>
+          <div class="pub-meta">Bisht, S.S., Mishra, V. &amp; Fuloria, S. · Social Indicators Research, 98(1), 167–181 · 2010</div>
+          <a href="https://scholar.google.com/scholar?q=Measuring+accessibility+inclusive+development+census+based+index+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+        <div class="pub-citations">61 citations</div>
+      </div>
+
+      <div class="pub-item">
+        <div>
+          <div class="pub-title">Factors affecting behavioral intentions towards mobile banking usage: Empirical evidence from India</div>
+          <div class="pub-meta">Dasgupta, S., Paul, R. &amp; Fuloria, S. · Romanian Journal of Marketing · 2011</div>
+          <a href="https://scholar.google.com/scholar?q=Factors+affecting+behavioral+intentions+mobile+banking+usage+India+Fuloria" target="_blank" rel="noopener" class="pub-link">Google Scholar →</a>
+        </div>
+        <div class="pub-citations">303 citations</div>
+      </div>
+    </div>
+
+    <div class="scholar-cta">
+      <p>Full publication list with citation metrics on Google Scholar</p>
+      <a href="https://scholar.google.com/citations?user=iSC66QQAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-ghost">Open Google Scholar →</a>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- PROJECTS -->
+  <section id="projects" style="max-width:var(--max-w);margin:0 auto;padding:5rem var(--gutter);background:var(--ink-2);" class="reveal">
+    <div class="section-label">Selected Projects</div>
+    <h2 class="section-heading">Building what I<br /><em>teach</em></h2>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-tag">Simulation · MBA</div>
+        <div class="project-name">NexaCloud Pricing Simulation</div>
+        <p class="project-desc">A competitive cloud-pricing strategy simulation for MBA students. Teams play competing vendors in a dynamic market. Deployed on Vercel via GitHub.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Simulation · MDT</div>
+        <div class="project-name">Energy Chessboard: Iran Crisis</div>
+        <p class="project-desc">A geopolitical energy strategy simulation run across multiple MBA cohorts, exploring how global events cascade into corporate digital transformation decisions.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Tool · Quantitative Methods</div>
+        <div class="project-name">Normal Distribution Explorer</div>
+        <p class="project-desc">An interactive React/Vite learning app that lets students visualise and manipulate normal distribution parameters in real time. Built for the MBA Quantitative Methods course.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">AI · Course Assistant</div>
+        <div class="project-name">MDT RAG Assistant</div>
+        <p class="project-desc">A fine-tuned Llama 3.1 8B model with a RAG pipeline (ChromaDB + LangChain) trained on 12 course PDFs. Deployed via Ollama locally and Gradio on HuggingFace Spaces.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Book · EdTech</div>
+        <div class="project-name">Learning Without Walls</div>
+        <p class="project-desc">A full academic book on the LIFT Framework for EdTech in India's informal sector (~59,500 words, 12 chapters). Developed as a research and policy contribution to NEP 2020 implementation.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-tag">Policy · IFHE</div>
+        <div class="project-name">AI Policy Framework for IFHE</div>
+        <p class="project-desc">A comprehensive institutional AI governance framework covering responsible use, assessment integrity, and faculty onboarding. Presented to academic leadership and faculty development groups.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <div class="section-label">Contact</div>
+    <h2 class="section-heading" style="text-align:center;">Let's think<br /><em>together</em></h2>
+
+    <p class="contact-intro">
+      For research collaborations, speaking invitations, or conversations about AI and higher education.
+    </p>
+
+    <div class="contact-grid">
+      <a href="https://scholar.google.com/citations?user=iSC66QQAAAAJ&hl=en" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-label">Google Scholar</div>
+        <div class="contact-value">Publications →</div>
+      </a>
+      <a href="https://www.linkedin.com/in/sanjayfuloria/" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">Connect →</div>
+      </a>
+      <a href="mailto:sanjay.fuloria@ibsindia.org" class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">Write →</div>
+      </a>
+    </div>
+
+    <p style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-align:center;">
+      ICFAI Foundation for Higher Education · Hyderabad · India
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2025 Sanjay Fuloria. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://scholar.google.com/citations?user=iSC66QQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/sanjayfuloria/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:sanjay.fuloria@ibsindia.org">Email</a>
+    </div>
+  </footer>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
