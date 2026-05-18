@@ -569,6 +569,10 @@
       margin-top: 2rem;
     }
 
+    .project-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
     .project-card {
       border: 1px solid var(--rule);
       padding: 2rem;
@@ -617,6 +621,24 @@
       font-size: 0.87rem;
       color: var(--warm-grey);
       line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1px solid var(--gold-dim);
+      padding-bottom: 1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .project-link:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
     }
 
     /* ============================================================
@@ -1034,39 +1056,38 @@
 
     <div class="projects-grid">
       <div class="project-card">
-        <div class="project-tag">Simulation · MBA</div>
-        <div class="project-name">NexaCloud Pricing Simulation</div>
-        <p class="project-desc">A competitive cloud-pricing strategy simulation for MBA students. Teams play competing vendors in a dynamic market. Deployed on Vercel via GitHub.</p>
+        <div class="project-tag">Simulation</div>
+        <div class="project-name">Student 360° Dashboard</div>
+        <p class="project-desc">A comprehensive dashboard for tracking student details and academic performance across cohorts. Built for institutional monitoring and intervention.</p>
+        <a href="https://student-360-dashboard-4vnjqvvhm-sanjay-fulorias-projects.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
       </div>
 
       <div class="project-card">
-        <div class="project-tag">Simulation · MDT</div>
-        <div class="project-name">Energy Chessboard: Iran Crisis</div>
-        <p class="project-desc">A geopolitical energy strategy simulation run across multiple MBA cohorts, exploring how global events cascade into corporate digital transformation decisions.</p>
+        <div class="project-tag">Simulation</div>
+        <div class="project-name">KANBAN Project Management</div>
+        <p class="project-desc">A GenAI-powered KANBAN board demo where AI assists in moving cards across columns — a hands-on demonstration of intelligent task automation.</p>
+        <a href="https://pm-m9lm483pe-sanjay-fulorias-projects.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
       </div>
 
       <div class="project-card">
-        <div class="project-tag">Tool · Quantitative Methods</div>
-        <div class="project-name">Normal Distribution Explorer</div>
-        <p class="project-desc">An interactive React/Vite learning app that lets students visualise and manipulate normal distribution parameters in real time. Built for the MBA Quantitative Methods course.</p>
+        <div class="project-tag">Case Study Generation Tool</div>
+        <div class="project-name">Case Study Generator</div>
+        <p class="project-desc">An AI tool that generates business case studies on demand and stores them in an internal library — designed for faculty creating teaching material at scale.</p>
+        <a href="https://caseforge-7crb4jvtx-sanjay-fulorias-projects.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
       </div>
 
       <div class="project-card">
-        <div class="project-tag">AI · Course Assistant</div>
-        <div class="project-name">MDT RAG Assistant</div>
-        <p class="project-desc">A fine-tuned Llama 3.1 8B model with a RAG pipeline (ChromaDB + LangChain) trained on 12 course PDFs. Deployed via Ollama locally and Gradio on HuggingFace Spaces.</p>
+        <div class="project-tag">Simulation</div>
+        <div class="project-name">Business Analytics Simulation</div>
+        <p class="project-desc">An interactive classroom simulation for learning business analytics. Designed for teachers to deploy live in MBA sessions with real decision-making scenarios.</p>
+        <a href="https://business-analytics-simulation-26ep5dn24.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
       </div>
 
       <div class="project-card">
-        <div class="project-tag">Book · EdTech</div>
-        <div class="project-name">Learning Without Walls</div>
-        <p class="project-desc">A full academic book on the LIFT Framework for EdTech in India's informal sector (~59,500 words, 12 chapters). Developed as a research and policy contribution to NEP 2020 implementation.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Policy · IFHE</div>
-        <div class="project-name">AI Policy Framework for IFHE</div>
-        <p class="project-desc">A comprehensive institutional AI governance framework covering responsible use, assessment integrity, and faculty onboarding. Presented to academic leadership and faculty development groups.</p>
+        <div class="project-tag">Simulation</div>
+        <div class="project-name">Pricing Simulation</div>
+        <p class="project-desc">A competitive pricing strategy simulation for classroom use. Students experience market dynamics, cost structures, and pricing decisions in real time.</p>
+        <a href="https://pricing-simulation-ah0on6nk2-sanjay-fulorias-projects.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
       </div>
     </div>
   </section>
