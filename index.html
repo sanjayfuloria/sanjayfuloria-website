@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/jpeg" href="/sanjay.jpg" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dr. Sanjay Fuloria | Professor · Researcher · Thought Leader</title>
@@ -192,6 +193,51 @@
       color: var(--muted);
     }
 
+    .experience-track {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--rule);
+      margin-bottom: 1.2rem;
+      background: var(--ink-2);
+    }
+    .exp-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.1rem 0.5rem;
+      text-align: center;
+      gap: 0.25rem;
+    }
+    .exp-icon { margin-bottom: 0.3rem; opacity: 0.9; }
+    .exp-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .exp-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-top: 0.2rem;
+    }
+    .exp-sub {
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .exp-divider {
+      width: 1px;
+      height: 70px;
+      background: var(--rule);
+      flex-shrink: 0;
+    }
     .pillars { display: flex; flex-direction: column; border: 1px solid var(--rule); }
     .pillar { padding: 0.85rem 1rem; border-bottom: 1px solid var(--rule); }
     .pillar:last-child { border-bottom: none; }
@@ -453,7 +499,31 @@
       .project-card:last-child:nth-child(odd) { grid-column: auto; }
       .tab-btn { padding: 0.4rem 0.6rem; font-size: 0.58rem; }
     }
-  </style>
+    *, *::before, *::after { transition: background 0.3s, color 0.3s, border-color 0.3s; }
+    html.light-mode {
+      --ink:        #f4efe4;
+      --ink-2:      #ebe4d6;
+      --ink-3:      #e0d8c8;
+      --parchment:  #1a1a14;
+      --cream:      #1e1a10;
+      --warm-grey:  #4a4238;
+      --muted:      #7a7268;
+      --gold:       #8a6418;
+      --gold-light: #a07828;
+      --gold-dim:   #b89040;
+      --rule:       #c8bea8;
+    }
+  
+    @keyframes highlightPulse {
+        0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+        50% { box-shadow: 0 0 30px 15px rgba(212, 175, 55, 0.4); }
+        100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    }
+    .highlight-pulse {
+        animation: highlightPulse 1.5s ease 3;
+    }
+
+    </style>
 </head>
 <body>
 
@@ -466,6 +536,10 @@
       <button class="tab-btn" onclick="showTab('research', this)">Research</button>
       <button class="tab-btn" onclick="showTab('projects', this)">Projects</button>
       <button class="tab-btn" onclick="showTab('contact', this)">Contact</button>
+      <button class="tab-btn" onclick="showTab('achievements', this)">Achievements</button>
+      <button id="theme-toggle" onclick="toggleTheme()" style="background:transparent;border:1px solid var(--muted);color:var(--warm-grey);font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 0.8rem;cursor:pointer;transition:all 0.2s;margin-left:0.5rem;" title="Toggle light/dark mode">
+        <span id="theme-icon">☀</span>&nbsp;<span id="theme-label" style="font-size:0.58rem;letter-spacing:0.1em;">Light Mode</span>
+      </button>
     </nav>
   </header>
 
@@ -489,7 +563,31 @@
       <div class="profile-stats">
         <div class="stat"><span class="stat-n">400+</span><span class="stat-l">Citations</span></div>
         <div class="stat"><span class="stat-n">20+</span><span class="stat-l">Papers</span></div>
-        <div class="stat"><span class="stat-n">15+</span><span class="stat-l">Yrs Exp</span></div>
+        <div class="stat"><span class="stat-n">27+</span><span class="stat-l">Yrs Exp</span></div>
+      </div>
+
+      <div class="experience-track">
+        <div class="exp-card">
+          <div class="exp-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+            </svg>
+          </div>
+          <div class="exp-num">15+</div>
+          <div class="exp-label">Years Corporate</div>
+          <div class="exp-sub">Industry &amp; Consulting</div>
+        </div>
+        <div class="exp-divider"></div>
+        <div class="exp-card">
+          <div class="exp-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="exp-num">12+</div>
+          <div class="exp-label">Years Academic</div>
+          <div class="exp-sub">Teaching &amp; Research</div>
+        </div>
       </div>
 
       <div class="pillars">
@@ -533,7 +631,7 @@
       <div class="tab-panel active" id="tab-about">
         <h2 class="panel-heading">The work and the <em>why behind it</em></h2>
         <div class="about-body">
-          <p>I have spent two decades studying how technology reshapes institutions — and how institutions shape technology adoption back. That tension is where I live. I joined IFHE Hyderabad to teach in the MBA programme, and over time took on responsibility for the Centre for Distance and Online Education, which oversees learning for thousands of students who cannot be in a classroom every day.</p>
+          <p>I have spent more than two and a half decades studying how technology reshapes institutions — and how institutions shape technology adoption back. That tension is where I live. I joined IFHE Hyderabad to teach in the MBA programme, and over time took on responsibility for the Centre for Distance and Online Education, which oversees learning for thousands of students who cannot be in a classroom every day.</p>
           <p>My research began with mobile banking adoption and has tracked the digital wave through blockchain, AI, and now agentic systems. I am interested less in the hype cycle and more in the institutional conditions that determine whether a technology creates genuine value or merely disruption. That scepticism — paired with genuine excitement about what is possible — shapes how I teach, write, and advise.</p>
           <p>Outside the institution, I write for a broader audience on education policy, AI governance, and the future of management education in India. I believe academics have an obligation to participate in public discourse, not just produce papers for credentialed readers.</p>
           <p>My work has been cited over 400 times. My most-cited paper, on mobile banking adoption in India, has over 300 citations. I have published across social indicators, disaster management, applied economics, knowledge management, and AI in services — a range that reflects an abiding interest in how technology intersects with social systems.</p>
@@ -544,6 +642,16 @@
       <div class="tab-panel" id="tab-writing">
         <h2 class="panel-heading">Opinion &amp; <em>Commentary</em></h2>
         <div class="writing-grid">
+          <a href="https://www.marketexpress.in/2026/07/ai-and-education-the-end-of-information-asymmetry.html" target="_blank" rel="noopener" class="writing-item">
+            <div class="writing-outlet">Market Express</div>
+            <div class="writing-title">AI and Education: The End of Information Asymmetry</div>
+            <span class="writing-arrow">Read →</span>
+          </a>
+          <a href="https://education.economictimes.indiatimes.com/news/industry/transforming-education-embracing-inclusivity-through-open-and-distance-learning-in-india/132313324" target="_blank" rel="noopener" class="writing-item">
+            <div class="writing-outlet">Economic Times Education</div>
+            <div class="writing-title">Transforming Education: Embracing Inclusivity through Open and Distance Learning in India</div>
+            <span class="writing-arrow">Read →</span>
+          </a>
           <a href="https://education.economictimes.indiatimes.com/news/higher-education/indias-engineering-education-bridging-the-skills-gap-for-tomorrows-workforce/129918437" target="_blank" rel="noopener" class="writing-item">
             <div class="writing-outlet">Economic Times Education</div>
             <div class="writing-title">India's Engineering Education: The Great Mismatch</div>
@@ -679,6 +787,13 @@
               <a href="https://scholar.google.com/scholar?q=Ancient+Wisdom+Modern+Dilemmas+Indian+Epics+Fuloria" target="_blank" rel="noopener" class="pub-link">Scholar →</a>
             </div>
           </div>
+          <div class="pub-item">
+            <div>
+              <div class="pub-title">Mindfulness, Sustainability, and Future Employability: A Triadic Conceptual Framework for Higher Education</div>
+              <div class="pub-meta">Fuloria, S., Roy, S. &amp; Gopal, G. · Purushartha, 18(2), 83–98</div>
+              <a href="https://journals.smsvaranasi.com/index.php/purushartha/article/view/2641" target="_blank" rel="noopener" class="pub-link">Article →</a>
+            </div>
+          </div>
         </div>
 
         <div class="pub-year-group">
@@ -753,11 +868,60 @@
         <h2 class="panel-heading">Building what I <em>teach</em></h2>
         <div class="projects-grid">
           <div class="project-card">
+            <div class="project-tag">Teaching Tool · MBA</div>
+            <div class="project-name">CoPro Stage 1 Studio</div>
+            <p class="project-desc">A hands-on classroom app that takes Online MBA learners from a business pain to a one-page course-project synopsis. Seven real-company specimens, a live five-tool statistics lab, a title face-off, a tool-matching game and a synopsis builder that exports to Word.</p>
+            <a href="https://copro.sanjayfuloria.tech/" target="_blank" rel="noopener" class="project-link">Launch →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Research Lab · Research Methods Workshop</div>
+            <div class="project-name">SLR Lab: AI-Augmented Literature Reviews</div>
+            <p class="project-desc">A guided lab for screening, coding and verifying literature with Claude. Groups build a search strategy, screen records against human labels with recall and kappa, test whether decisions hold on rerun, catch invented quotes and references, and draft an AI-use disclosure. A facilitator dashboard compares every group live.</p>
+            <a href="https://slrlab.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Research Lab · Research Methods Workshop</div>
+            <div class="project-name">Agentic Research Design Studio</div>
+            <p class="project-desc">A studio for designing survey instruments with a team of AI agents. A writer drafts items, a critic flags wording problems, simulated respondents pretest them and an autonomous agent runs the loop on its own. The principal investigator decides every item, every change is versioned, and the lab drafts disclosures for ethics committees, journals and respondents.</p>
+            <a href="https://agentstudio.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Teaching Tool · Management Development</div>
+            <div class="project-name">Advanced Decision Ownership and Education</div>
+            <p class="project-desc">A browser-based decision lab for management development programmes. Participants work through thirty caselets across five tools: RAPID decision rights, weighted scoring, decision trees, pre-mortems and bias checks. Each decision is scored against random choice, and a facilitator view shows how the room is deciding.</p>
+            <a href="https://adoe.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">AI Education Platform &middot; OpenAI Build Week</div>
+            <div class="project-name">EduMind AI</div>
+            <p class="project-desc">A full-stack AI education platform with GPT-5.6 tutoring, quiz generation, personalized study plans, progress coaching, admin course creation tools, and Firebase-backed student workflows.</p>
+            <a href="/edumind-ai/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Teaching Tool &middot; MBA</div>
+            <div class="project-name">DEA&middot;Lab &mdash; Efficiency Analysis</div>
+            <p class="project-desc">A browser-based Data Envelopment Analysis platform for MBA classrooms. Students run CCR and BCC models on real Indian datasets &mdash; banking, healthcare, airlines &mdash; with a live Python console and instant visual results. Zero cost, zero server.</p>
+            <a href="https://dea-classroom-ifhe.web.app" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
             <div class="project-tag">Simulation</div>
             <div class="project-name">Student 360° Dashboard</div>
             <p class="project-desc">A comprehensive dashboard for tracking student details and academic performance across cohorts. Built for institutional monitoring and intervention.</p>
             <a href="https://student-360-dashboard-4vnjqvvhm-sanjay-fulorias-projects.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
           </div>
+          <div class="project-card">
+            <div class="project-tag">Teaching Tool &middot; Cybersecurity</div>
+            <div class="project-name">CyberLab &mdash; Offense &amp; Defense Case Files</div>
+            <p class="project-desc">An interactive, sandboxed walkthrough of core cyber offense and defense techniques &mdash; SQL injection, XSS, phishing triage, firewall rule matching, password crack-time estimation, and encryption basics &mdash; each paired attack-vs-defense, with a built-in knowledge check. Everything runs client-side; no live exploits, no real targets.</p>
+            <a href="/cyberlab/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">RAG Application &middot; MDT Course</div>
+            <div class="project-name">MDT RAG Assistant</div>
+            <p class="project-desc">A retrieval-augmented Q&amp;A assistant trained on all 28 case studies and technical notes from Managing Digital Transformation. Ask a question, get an answer grounded in the actual course readings, with the source cited. Runs on local open-source models &mdash; Ollama, ChromaDB, LangChain &mdash; no cloud API calls. Password-protected for MDT students.</p>
+            <a href="https://mdt.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+
           <div class="project-card">
             <div class="project-tag">Simulation</div>
             <div class="project-name">KANBAN Project Management</div>
@@ -794,10 +958,106 @@
             <p class="project-desc">A competitive pricing strategy simulation for classroom use. Students experience market dynamics, cost structures, and pricing decisions in real time.</p>
             <a href="https://pricing-simulation-ah0on6nk2-sanjay-fulorias-projects.vercel.app/" target="_blank" rel="noopener" class="project-link">Launch →</a>
           </div>
+          <div class="project-card">
+            <div class="project-tag">MDP · Corporate Programme</div>
+            <div class="project-name">Innovation and AI Leadership Programmes</div>
+            <p class="project-desc">An executive development programme for corporate leaders on innovation frameworks and applied AI strategy. Designed for organisations navigating digital transformation at scale.</p>
+            <a href="https://www.sanjayfuloria.tech/hyundai-mdp/login" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">MDP &middot; Teaching Tool</div>
+            <div class="project-name">Decision Ownership &amp; Execution</div>
+            <p class="project-desc">An interactive classroom simulation with 30 workplace caselets. Managers first decide by instinct, then rebuild the plan with a simple toolkit: one owner, clear dates, named dependencies and an early check-in. The app scores both rounds and shows the days lost and the cost of rework.</p>
+            <a href="https://decisions.sanjayfuloria.tech/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+           <div class="project-card">
+            <div class="project-tag">MDP · Corporate Programme</div>
+            <div class="project-name">GenAI Fine-Tuning — Process &amp; Demos</div>
+            <p class="project-desc">Four Qwen2.5-7B models fine-tuned for HR policy, contract risk, product support, and IT helpdesk &mdash; built for a Management Development Programme on Generative AI. Walk through the training pipeline and try each model's real, checkpoint-verified answers.</p>
+            <a href="https://www.sanjayfuloria.tech/genai-finetuning/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">MDP &middot; Corporate Programme</div>
+            <div class="project-name">AI and Analytics for NBCC Mid-Level Executives</div>
+            <p class="project-desc">The companion app for a two-day Management Development Programme. Run Python labs in your browser, work alone or in function teams, get coaching from an AI helper, and build a one-page AI adoption roadmap for your own department. All data is invented.</p>
+            <a href="https://www.sanjayfuloria.tech/nbcc-mdp/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Simulation</div>
+            <div class="project-name">HR Attrition Simulator</div>
+            <p class="project-desc">An interactive simulation for predicting and analysing employee attrition. Built for HR analytics teaching — lets students explore how organisational variables drive retention outcomes in real time.</p>
+            <a href="/attrition/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Simulation &middot; MBA</div>
+            <div class="project-name">Setting the Dial: AML Simulation</div>
+            <p class="project-desc">An eight-quarter simulation where students run anti money laundering for a large bank. They set the alert threshold, staff the review team, work live cases and answer regulators. Built from a recent billion-dollar enforcement action, it shows why model calibration, evidence and honest records matter more than any single number.</p>
+            <a href="/aml-simulation/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">MDP · Corporate Programme</div>
+            <div class="project-name">MEIL Productivity Hub</div>
+            <p class="project-desc">A dedicated learning and productivity portal for MEIL employees. Supports AI literacy, workflow automation, and capability building as part of an organisation-wide digital transformation initiative.</p>
+            <a href="https://www.sanjayfuloria.tech/meil/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">AI Workshop &middot; Live Engagement Tool</div>
+            <div class="project-name">Agent Workshop Live</div>
+            <p class="project-desc">A real-time companion app for a "Building Your First AI Agent" workshop &mdash; live Kahoot-style quiz, word cloud, and leaderboard, plus a browser-based tool where participants build their own AI agents using their own free Groq API key.</p>
+            <a href="https://workshop.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Internal Platform · DVL</div>
+            <div class="project-name">Digital Ventures Platform</div>
+            <p class="project-desc">The operating system for the Digital Venture Lab at IFHE — a production-grade, multi-role internal platform managing teams, milestones, file workflows, and role-based access. Built on Next.js with custom JWT auth, Google Drive integration, and automated onboarding via bulk CSV import and transactional email.</p>
+            <a href="https://www.sanjayfuloria.tech/dvl" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Simulation · MBA</div>
+            <div class="project-name">StatArena — Statistics Simulation</div>
+            <p class="project-desc">A live competitive statistics simulation for MBA classrooms. Students explore real business datasets using a built-in Python playground (pandas, scipy, matplotlib) before answering questions on descriptive stats, hypothesis testing, and regression. Individual and team scoring across 8 rounds.</p>
+            <a href="https://statarena.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Gamified Learning &middot; CDOE</div>
+            <div class="project-name">TechQuest &mdash; Faculty Tech Upskilling</div>
+            <p class="project-desc">A gamified quiz platform for faculty professional development at IFHE CDOE. Faculty journey through 9 Technology Zones, earn badges, and compete on a live leaderboard &mdash; making tech literacy training engaging and competitive.</p>
+            <a class="project-link" href="https://sanjayfuloria.github.io/techquest-ifhe" target="_blank" rel="noopener">Launch &#8594;</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Simulation · MBA</div>
+            <div class="project-name">PriceWars — Live Competitive Pricing Game</div>
+            <p class="project-desc">A real-time multi-team pricing simulation for MBA marketing classes. Teams compete across 8–10 rounds setting prices against a market model with demand shocks. Features per-student logins, admin dashboard, live leaderboard, and CSV export.</p>
+            <a href="https://pricewars.sanjayfuloria.tech" target="_blank" rel="noopener" class="project-link">Launch →</a>
+          </div>
+          <div class="project-card">
+            <div class="project-tag">Executive Workshop &middot; Pharma Manufacturing</div>
+            <div class="project-name">AI Readiness Assessment &amp; Action Learning Workshop</div>
+            <p class="project-desc">A 30-question readiness assessment and action learning project design tool built for an Aurobindo Pharma executive workshop on AI-enabled manufacturing operations. Includes a live facilitator dashboard with participant scores and Excel export.</p>
+            <a href="/ai-readiness/" target="_blank" rel="noopener" class="project-link">Launch &rarr;</a>
+          </div>
         </div>
       </div>
 
       <!-- CONTACT -->
+      
+      <div class="tab-panel" id="tab-achievements" style="animation: none;">
+        <div id="hackathon-card" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-top: 1rem;">
+          <img src="hackathon.png" alt="ISB-Cardiff Hackathon Winners" style="width: 100%; height: auto; display: block;">
+          <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #1e3a5f, #2d5a8f); color: white;">
+            <span style="display: inline-block; background: #d4af37; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">Trophy Winner</span>
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem; color: white; font-family: Georgia, serif;">ISB-Cardiff Hackathon - Top 3 Winners</h3>
+            <p style="font-size: 1rem; opacity: 0.9; line-height: 1.6;">Among 54 competing teams from Cardiff University, the Indian School of Business, Symbiosis Institute of Technology, Novartis, and other leading institutions, our team was shortlisted among just six finalists and emerged as one of three winners. Our problem statement focused on LLM and Cyber Education.</p><p style="margin-top: 1rem;"><a href="https://prodcms.isb.edu/media/mnvdylu1/iids-bulletin-edition-6.pdf#page=10" target="_blank" style="color: #d4af37; font-weight: 600; text-decoration: underline;">Read about it in the IIDS Bulletin (Page 10) →</a></p>
+            <div style="display: flex; gap: 2rem; margin-top: 1.2rem; flex-wrap: wrap;">
+              <div style="text-align: center;"><span style="font-size: 2rem; font-weight: 700; color: #d4af37; display: block;">54</span><span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">Teams Competed</span></div>
+              <div style="text-align: center;"><span style="font-size: 2rem; font-weight: 700; color: #d4af37; display: block;">6</span><span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">Finalists</span></div>
+              <div style="text-align: center;"><span style="font-size: 2rem; font-weight: 700; color: #d4af37; display: block;">3</span><span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">Winners</span></div>
+              <div style="text-align: center;"><span style="font-size: 2rem; font-weight: 700; color: #d4af37; display: block;">2025</span><span style="font-size: 0.8rem; opacity: 0.8; text-transform: uppercase;">Year</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="tab-panel" id="tab-contact">
         <h2 class="panel-heading">Let's think <em>together</em></h2>
         <p style="font-size:0.93rem;color:var(--cream);margin-bottom:2rem;max-width:480px;line-height:1.8;">For research collaborations, speaking invitations, media interviews, or conversations about AI and the future of higher education in India.</p>
@@ -826,13 +1086,72 @@
   </div>
 
   <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      if (root.classList.contains('light-mode')) {
+        root.classList.remove('light-mode');
+        icon.textContent = '☀';
+        label.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.classList.add('light-mode');
+        icon.textContent = '☾';
+        label.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
     function showTab(name, btn) {
+      if (name === "achievements") {
+        setTimeout(function() {
+          var card = document.getElementById("hackathon-card");
+          if (card) {
+            card.style.transition = "box-shadow 0.5s ease, transform 0.5s ease";
+            card.style.boxShadow = "0 0 0 8px #d4af37, 0 0 60px 20px rgba(212,175,55,0.8)";
+            card.style.transform = "scale(1.03)";
+            setTimeout(function() {
+              card.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
+              card.style.transform = "scale(1)";
+            }, 2500);
+          }
+        }, 150);
+      }
+
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.getElementById('tab-' + name).classList.add('active');
       btn.classList.add('active');
     }
+
+    // Restore saved theme preference
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.add('light-mode');
+      document.getElementById('theme-icon').textContent = '☾';
+      document.getElementById('theme-label').textContent = 'Dark Mode';
+    }
   </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.querySelector("button[onclick*="'achievements'"]");
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    setTimeout(function() {
+                        var card = document.querySelector('#tab-achievements img');
+                        if (card) {
+                            var parent = card.parentElement;
+                            parent.classList.remove('highlight-pulse');
+                            void parent.offsetWidth;
+                            parent.classList.add('highlight-pulse');
+                        }
+                    }, 100);
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
